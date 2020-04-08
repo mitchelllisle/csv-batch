@@ -16,4 +16,4 @@ def read(file: str, batchsize: int = None) -> Generator:
             yield batch
         else:
             for row in reader:
-                yield row
+                yield dict(row)
