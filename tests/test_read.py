@@ -14,12 +14,12 @@ class TestRead(unittest.TestCase):
         batch_count = 0
         for _ in batches:
             batch_count += 1
-        assert batch_count == math.ceil(self.total_lines / batch_size)
+        total_batches = math.ceil(self.total_lines / batch_size)
+        assert batch_count == total_batches
 
     def test_no_batch(self):
         batches = read(self.file)
         batch_count = 0
-        for batch in batches:
+        for _ in batches:
             batch_count += 1
-        assert batch_count == 1
-        assert len(batch) == 51
+        assert batch_count == self.total_lines
