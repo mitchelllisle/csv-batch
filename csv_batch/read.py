@@ -2,7 +2,7 @@ import csv
 from typing import Generator
 
 
-def read(file: str, batchsize: int = 100) -> Generator:
+def read(file: str, batchsize: int = None) -> Generator:
     with open(file, "r") as f:
         reader = csv.DictReader(f)
 
